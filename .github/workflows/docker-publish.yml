@@ -38,12 +38,10 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '24'
+          cache: 'yarn'
 
-      - name: Corepack
-        run: npm install -g corepack
-
-      - name: Install yarn
-        run: yarn set version stable && yarn install
+      - name: Enable Corepack
+        run: corepack enable
 
       - name: Yarn install
         run: yarn install --immutable
