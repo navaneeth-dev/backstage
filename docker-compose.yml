@@ -1,0 +1,19 @@
+services:
+  backstage:
+    build:
+      context: .
+      dockerfile: packages/backend/Dockerfile
+    ports:
+      - "7007:7007"
+    env_file:
+      - .env
+
+  postgres:
+    image: postgres:18-trixie
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      TZ: Asia/Kolkata
+      PGTZ: Asia/Kolkata
+    ports:
+      - 5432:5432
